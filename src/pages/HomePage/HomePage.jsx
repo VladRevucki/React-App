@@ -5,6 +5,7 @@ import { API_URL } from "../../constants"
 import { QuestionCardList } from "../../components/QuestionCardList"
 import { Loader } from "../../components/Loader"
 import { useFetch } from "../../hooks/useFetch"
+import { SearchInput } from "../../components/SearchInput"
 
 export const HomePage = () => {
 	const [questions, setQuestions] = useState([])
@@ -51,7 +52,9 @@ export const HomePage = () => {
 
 	return (
 		<>
-			<input type="text" value={searchValue} onChange={onSearchChangeHandler} />
+			<div className={cls.controlsContainer}>
+				<SearchInput value={searchValue} onChange={onSearchChangeHandler} />
+			</div>
 			{isLoading && <Loader />}
 			{error && <p>{error}</p>}
 			<QuestionCardList cards={questions} />
