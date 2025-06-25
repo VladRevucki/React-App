@@ -74,7 +74,6 @@ export const HomePage = () => {
 	/**отображение количества карточек на странице */
 	const pagination = useMemo(() => {
 		const totalCardsCount = questions?.pages || 0
-
 		/**формируем массив из полученного количества страниц */
 		return Array(totalCardsCount)
 			.fill(0)

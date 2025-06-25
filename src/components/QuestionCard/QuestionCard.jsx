@@ -23,7 +23,7 @@ export const QuestionCard = ({ card }) => {
 			<h5 className={cls.cardTitle}>{card.question}</h5>
 
 			<div className={cls.cardAnswers}>
-				<label>short answer:</label>
+				<label>короткий ответ:</label>
 				<p className={cls.cardAnswer}>{card.answer}</p>
 			</div>
 
