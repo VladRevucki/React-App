@@ -4,6 +4,7 @@ import cls from "./AddQuestionsPage.module.css"
 import { delayFn } from "../../helpers/delayFn"
 import { toast } from "react-toastify"
 import { API_URL } from "../../constants"
+import { Loader } from "../../components/Loader"
 
 const createCardAction = async (_prevState, formData) => {
 	try {
@@ -46,6 +47,8 @@ export const AddQuestionsPage = () => {
 
 	return (
 		<>
+			{isPending && <Loader />}
+
 			<h1 className={cls.formTitle}>Добавить новый вопрос</h1>
 			<div className={cls.formContainer}>
 				<form action={formAction} className={cls.form}>
@@ -96,7 +99,6 @@ export const AddQuestionsPage = () => {
 							id="resourcesField"
 							cols="30"
 							rows="5"
-							required
 							placeholder="пожалуйста введите ресурсы, разделенные запятыми"
 						></textarea>
 					</div>
