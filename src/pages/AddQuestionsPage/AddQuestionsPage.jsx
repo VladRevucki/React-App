@@ -26,11 +26,16 @@ const createCardAction = async (_prevState, formData) => {
 				editDate: undefined,
 			}),
 		})
+
+		if (response.status === 404) {
+			throw new Error(response.statusText)
+		}
 		const question = await response.json()
 		toast.success("Новый вопрос успешно создан")
 		return isClearForm ? {} : question
 	} catch (error) {
 		toast(error.message)
+		return {}
 	}
 }
 
