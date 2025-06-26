@@ -6,6 +6,8 @@ import { delayFn } from "../../helpers/delayFn"
 import { dateFormat } from "../../helpers/dateFormat"
 import { API_URL } from "../../constants"
 import { toast } from "react-toastify"
+import { useFetch } from "../../hooks/useFetch"
+import { useNavigate } from "react-router-dom"
 
 const editCardAction = async (_prevState, formData) => {
 	try {
@@ -47,16 +49,41 @@ export const EditQuestion = ({ initialState = {} }) => {
 		clearForm: false,
 	})
 
+	const navigate = useNavigate()
+
+	const [removeQuestion, isQuestionRemoving] = useFetch(async () => {
+		await fetch(`${API_URL}/react/${initialState.id}`, {
+			method: "DELETE",
+		})
+
+		toast.success("Вопрос удален")
+		navigate("/")
+	})
+
+	const onRemoveQuestionHandler = () => {
+		const isRemove = confirm("Вы уверены?")
+
+		isRemove && removeQuestion()
+	}
+
 	return (
 		<>
-			{isPending && <Loader />}
+			{(isPending || isQuestionRemoving) && <Loader />}
 
 			<h1 className={cls.formTitle}>Изменить вопрос</h1>
 			<div className={cls.formContainer}>
+				<button
+					className={cls.removeBtn}
+					disabled={isPending || isQuestionRemoving}
+					onClick={onRemoveQuestionHandler}
+				>
+					X
+				</button>
+
 				<QuestionForm
 					state={formState}
 					formAction={formAction}
-					isPending={isPending}
+					isPending={isPending || isQuestionRemoving}
 					submitBtnText={"Изменить вопрос"}
 				/>
 			</div>
