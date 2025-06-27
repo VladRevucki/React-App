@@ -11,10 +11,10 @@ import { HomePage } from "./pages/HomePage"
 import { NotFoundPage } from "./pages/NotFoundPage"
 import { QuestionPage } from "./pages/QuestionPage"
 import { AddQuestionsPageLazy } from "./pages/AddQuestionsPage"
-import { EditQuestionPage } from "./pages/EditQuestionPage/EditQuestionPage"
 import { AuthProvider } from "./auth/AuthProvider"
 import { useAuth } from "./hooks/useAuth"
 import { ForbiddenPage } from "./pages/ForbiddenPage"
+import EditQuestionPageLazy from "./pages/EditQuestionPage/EditQuestionPage.lazy"
 
 const ProtectedRoutes = () => {
 	const { isAuth } = useAuth()
@@ -44,7 +44,10 @@ function App() {
 						{/* защищенный роутер */}
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/addquestion" element={<AddQuestionsPageLazy />} />
-							<Route path="/editquestion/:id" element={<EditQuestionPage />} />
+							<Route
+								path="/editquestion/:id"
+								element={<EditQuestionPageLazy />}
+							/>
 							<Route path="*" element={<NotFoundPage />} />
 						</Route>
 					</Route>
