@@ -122,12 +122,12 @@ export const HomePage = () => {
 					onChange={onSortSelectChangeHandler}
 					className={cls.select}
 				>
-					<option value="">sort by</option>
+					<option value="">сортировка</option>
 					<hr />
-					<option value="_sort=level">level ASC</option>
-					<option value="_sort=-level">level DESC</option>
-					<option value="_sort=completed">completed ASC</option>
-					<option value="_sort=-completed">completed DESC</option>
+					<option value="_sort=level">уровни по возрастанию</option>
+					<option value="_sort=-level">уровни по убыванию</option>
+					<option value="_sort=completed">выполнение по возрастанию</option>
+					<option value="_sort=-completed">выполнение по убыванию</option>
 				</select>
 				<select
 					value={countSelectValue}

@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import { API_URL } from "../../constants"
 import { Loader, SmallLoader } from "../../components/Loader"
+import { useAuth } from "../../hooks/useAuth"
 
 export const QuestionPage = () => {
 	const checkboxId = useId()
@@ -15,6 +16,8 @@ export const QuestionPage = () => {
 	const [card, setCard] = useState(null)
 
 	const { id } = useParams()
+
+	const { isAuth } = useAuth()
 
 	const onCheckboxChangeHandler = () => {
 		setIsChecked(!isChecked)
@@ -100,14 +103,16 @@ export const QuestionPage = () => {
 						{isCardUpdating && <SmallLoader />}
 					</label>
 
-					<Button
-						onClick={() => {
-							navigate(`/editquestion/${card.id}`)
-						}}
-						isDisabled={isCardUpdating}
-					>
-						Изменить вопрос
-					</Button>
+					{isAuth && (
+						<Button
+							onClick={() => {
+								navigate(`/editquestion/${card.id}`)
+							}}
+							isDisabled={isCardUpdating}
+						>
+							Изменить вопрос
+						</Button>
+					)}
 					<Button
 						onClick={() => {
 							navigate("/")
