@@ -36,6 +36,18 @@ body {
 	background-color: var(--main-bg-color);
 }
 
+.darkLayout {
+	/*для Body в index.html*/
+	--main-bg-color: #23272f;
+	--text-color: #fff;
+
+	--btn-bg-color: #16444f;
+	--btn-text-color: #57c4dc;
+
+	--card-bg-color: #343f46;
+	--green-color: #219679;
+}
+
 @media (prefers-color-scheme: light) {
 	:root {
 		--main-bg-color: #fff;
@@ -48,7 +60,7 @@ body {
 		--green-color: #219679;
 	}
 }
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
 	:root {
 		--main-bg-color: #23272f;
 		--text-color: #fff;
