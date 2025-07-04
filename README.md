@@ -1,7 +1,7 @@
 ```
-The order of launching a web application:
+## The order of launching a web application:
     1) in the terminal enter: npm run server (data is loaded from the local server);
-    2)then enter: npm run dev
+    2) then enter: npm run dev
 ```
 
 # React + Vite
