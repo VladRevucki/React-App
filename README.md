@@ -1,3 +1,9 @@
+```
+The order of launching a web application:
+    1) in the terminal enter: npm run server (data is loaded from the local server);
+    2)then enter: npm run dev
+```
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
