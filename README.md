@@ -1,5 +1,5 @@
 
-![image](src/assets/react.svg) #([Link to page](https://react-cards-app-yw1h.onrender.com)) ![image](src/assets/react.svg) 
+![image](src/assets/react.svg) [Link to page](https://react-cards-app-yw1h.onrender.com) ![image](src/assets/react.svg) 
 
 # React + Vite
 
