@@ -9,7 +9,8 @@
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"server": "json-server --watch db.json -p 7789",
-		"server:help": "json-server --help"
+		"server:help": "json-server --help",
+		"start": "concurrently \"npm run server\" \"npm run dev\""
 	},
 	"dependencies": {
 		"react": "^19.1.0",
@@ -22,6 +23,7 @@
 		"@types/react": "^19.1.2",
 		"@types/react-dom": "^19.1.2",
 		"@vitejs/plugin-react": "^4.4.1",
+		"concurrently": "^9.2.0",
 		"eslint": "^9.25.0",
 		"eslint-plugin-prettier": "^5.5.0",
 		"eslint-plugin-react-hooks": "^5.2.0",
