@@ -5,6 +5,7 @@ In the terminal enter:
     1) npm run server (data is loaded from the local server);
     2) npm run dev
 ```
+![image](src/assets/react.svg)
 
 # React + Vite
 
